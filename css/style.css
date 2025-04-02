@@ -1,0 +1,848 @@
+/* General Styles */
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body { 
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+} 
+
+/* Header Styles */
+header { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5px;
+    z-index: 5; 
+}
+
+/* Navigation Styling */
+nav {
+    margin-left: auto;
+    margin-right: 200px;
+}
+
+nav ul { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li { 
+    margin: 0 30px;
+    position: relative;
+}
+
+/* Style only the first navigation link */
+nav ul li:first-child a {
+    color: var(--main-color); /* Apply main color */
+    border-bottom: 3px solid var(--main-color); /* Underline */
+}
+
+/* Default styles for other navigation links */
+nav ul li a { 
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--main-color); /* Change text color */
+    border-bottom: 3px solid var(--main-color); /* Underline with main color */
+}
+
+nav ul li .dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #444;
+    min-width: 200px;
+    z-index: 10;
+}
+
+nav ul li .dropdown-menu li {
+    display: block;
+}
+
+nav ul li .dropdown-menu li a {
+    padding: 12px 20px;
+    display: block;
+}
+
+nav ul li:hover .dropdown-menu {
+    display: block;
+}
+
+/* Universal Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #080808; /* Text color */
+    background-color: var(--main-color); /* Use your theme color */
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+
+/* Style the Logo */
+.logo {
+    font-size: 3rem; /* Increase size */
+    font-weight: bold;
+    color: var(--text-color); /* Keep text color */
+    text-shadow: 0 0 10px var(--main-color), 
+                 0 0 20px var(--main-color), 
+                 0 0 30px var(--main-color); /* Glow effect */
+    margin-left: 150px; /* Add spacing from the left */
+}
+
+/* Make the Logo Clickable */
+.logo a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from .logo */
+    display: inline-block;
+    text-shadow: inherit; /* Keep the glow effect */
+}
+
+
+
+/* Main Content */
+main { 
+    padding: 20px; 
+    margin-top: 60px; /* Prevent content from overlapping with fixed header */
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Ensure text stays in a column on the left */
+.home-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    gap: 10px;
+    margin-left: 150px;
+}
+
+/* Style h2 */
+.home-text h2 {
+    font-size: 4rem;
+    font-weight: bold; /* Make it bold */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    position: relative;
+    top: -150px; /* Moves text up */
+    left: -250px; /* Moves text to the left */
+}
+
+/* Make "My Website" the main color */
+.home-text h2 span {
+    color: var(--main-color);
+}
+
+/* Style h3 */
+.home-text h3 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    position: relative;
+    top: -140px; /* Moves text up */
+    left: -250px; /* Moves text to the left */
+}
+
+/* Make "HTML and CSS" the main color */
+.home-text h3 span {
+    color: var(--main-color);
+}
+
+.home-img img {
+    width: 300px; /* Adjust image size as needed */
+    height: 300px;
+    border-radius: 50%; /* Make the image circular */
+    overflow: hidden;
+    position: relative;
+    margin-top: -260px; /* Move image up */
+    margin-left: -200px; /* Move image to the left */
+    box-shadow: 0 0 15px var(--main-color); /* Halo effect */
+    transition: transform 0.3s ease; /* Smooth animation on hover */ 
+}
+
+
+/* Footer Styles */
+footer { 
+    background:var(--bg-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0; 
+}
+
+/* Flexbox Layout */
+body { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+main { 
+    flex: 1; 
+}
+
+/* Responsive Navigation */
+/* @media (max-width: 600px) { 
+    nav ul { 
+        display: block;
+        text-align: center; 
+    } 
+    nav ul li { 
+        display: block;
+        margin-bottom: 10px;
+    } 
+} */
+
+@media (max-width: 600px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Tablet Portrait */
+@media (min-width: 600px) and (max-width: 1024px) {
+    nav ul {
+        display: inline;
+        text-align: center;
+    }
+    nav ul li {
+        display: inline;
+        margin-bottom: 10px;
+    }
+}
+
+
+/*Login styling*/
+/* General Styles */
+/* Login Page Styles */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #131313, #080808);
+}
+
+.login-page .login-container {
+    background: rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(10px); */
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-page .login-container h2 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffee, 
+                 0 0 20px #00ffee, 
+                 0 0 30px #00ffee;
+}
+
+.login-page .login-container input {
+    width: 100%;
+    padding: 10px;
+    /* padding-top: 50px; */
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    color: white;
+    transition: 0.3s;
+}
+
+.login-page .login-container input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.login-page .login-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #00ffee;
+    color: #080808;
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-page .login-container button:hover {
+    background: #00ccbb;
+}
+
+/*About styling*/
+/* General Styles */
+/* About Page Styles */
+
+
+.heading{
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.education{
+    padding: 100px 15px;
+    background: var(--second-bg-color);
+}
+
+.education h2{
+    margin-bottom: 5rem;
+}
+
+.timeline-items{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.timeline-items::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left:calc(50% - 1px)
+}
+
+.timeline-item{
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-item:last-child{
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd){
+    padding-right:calc(50% + 30px);
+}
+
+.timeline-item:nth-child(even){
+    padding-left:calc(50% + 30px);
+}
+
+.timeline-dot{
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+    box-shadow:0 0 25px #00ffee, 
+               0 0 50px #00ffee, ;
+    position: absolute;
+    left:calc(50% - 8px);
+    border-radius: 50%;
+    top:10px;
+}
+
+.timeline-date{
+    font-size: 20px;
+    font-weight:800;
+    color: white;
+    margin:6px 0 15px;
+}
+
+.timeline-content{
+    background-color: var(--bg-color);
+    border: 3px solid var(--main-color);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+    transition:0.3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes text left and image right */
+    gap: 20px;
+}
+
+.text-content {
+    flex: 1; /* Makes text take available space */
+}
+
+.timeline-content h3{
+    font-size: 20px;
+}
+
+.rental-image {
+    width: 200px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 10px; /* Optional: rounded corners */
+    object-fit: cover;
+}
+
+
+
+/* Style for the Catagories page */
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 1.5rem; /* Space between boxes */
+}
+
+.menu .box-container .property-box{
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 3px solid var(--main-color); /* Ensure the border is visible */
+    border-radius: 10px; /* Optional: Rounds corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu .box-container .property-box h3 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.menu .box-container .property-box p {
+    color: #fff;
+    font-size: 1.5rem;
+    /* padding: 1rem 0; */
+}
+
+.menu .box-container .property-box img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 250px; /* Limits the max width */
+    height: 200px; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    display: block;
+    margin: 0 auto 1rem; /* Centers the image */
+}
+
+/* POP UP STYLING */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--second-bg-color); /* Slightly lighter dark background */
+    padding: 24px; /* Increased padding for a spacious feel */
+    border-radius: 12px; /* Softer, modern corners like Airbnb */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
+    z-index: 1000;
+    max-width: 600px; /* Wider max-width for better content layout */
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for contrast */
+    z-index: 999;
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded image corners */
+    margin-bottom: 16px; /* Space below image */
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 24px; /* Larger for easier clicking */
+    color: var(--text-color);
+    background: none;
+    border: none;
+    transition: color 0.2s ease; /* Smooth hover effect */
+}
+
+.close-btn:hover {
+    color: var(--main-color); /* Highlight on hover */
+}
+
+.popup-content {
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif; /* Consistent with body */
+    line-height: 1.6; /* Improved readability */
+}
+
+.popup-content h3 {
+    font-size: 2.4rem; /* Larger title, Airbnb-like */
+    margin: 0 0 12px; /* Spacing below title */
+    color: var(--main-color); /* Highlight title with main color */
+    font-weight: 700; /* Bold for emphasis */
+}
+
+.popup-content h4 {
+    font-size: 1.8rem; /* Slightly smaller for section heading */
+    margin: 20px 0 10px; /* Spacing above and below */
+    color: var(--text-color);
+    font-weight: 600; /* Semi-bold */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
+    padding-bottom: 4px;
+}
+
+.popup-content p {
+    font-size: 1.6rem; /* Readable text size */
+    margin: 8px 0; /* Consistent spacing */
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted for contrast */
+}
+
+.popup-content p:first-child {
+    margin-top: 0; /* Remove top margin for first paragraph */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .popup {
+        max-width: 90%;
+        padding: 16px;
+    }
+
+    .popup-content h3 {
+        font-size: 2rem;
+    }
+
+    .popup-content h4 {
+        font-size: 1.6rem;
+    }
+
+    .popup-content p {
+        font-size: 1.4rem;
+    }
+}
+
+/* Register page styling */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #131313, #080808);
+    padding: 20px;
+}
+
+.register-container .register-inner {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.register-container h2 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffee, 
+                 0 0 20px #00ffee, 
+                 0 0 30px #00ffee;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    color: white;
+    transition: 0.3s;
+}
+
+.register-container input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #00ffee;
+    color: #080808;
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 15px 0;
+}
+
+.register-container button:hover {
+    background: #00ccbb;
+}
+
+.register-container a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.register-container a:hover {
+    color: #00ccbb;
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.register-container p {
+    font-size: 1.6rem;
+    margin: 10px 0;
+}
+
+.register-link {
+    color: white !important; /* Makes text white */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Makes text bold */
+}
+
+.register-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+#rentButton {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centers horizontally */
+    width: 80%; /* Keeps the width as you had it */
+    text-align: center;
+}
+
+/* Rent Property Styling */
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--second-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 238, 0.1);
+}
+
+/* Heading styling */
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    padding: 10px;
+    font-size: 1.6rem;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #00cccc;
+    box-shadow: 0 0 5px rgba(0, 255, 238, 0.5);
+}
+
+select {
+    appearance: none;
+    background: var(--bg-color) url('data:image/svg+xml;utf8,<svg fill="%2300ffee" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    padding-right: 30px;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+/* Notification styling */
+.notification {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Button styling (override .btn for form submit button) */
+button[type="submit"] {
+    padding: 12px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: #080808;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+/* Booking details styling */
+.booking-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg-color);
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Login container styling (for non-logged-in users) */
+.login-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--second-bg-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2.8rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.login-container p {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.login-container a {
+    color: var(--main-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #00cccc;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container, .login-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    button[type="submit"],
+    .notification,
+    .booking-details,
+    .login-container p {
+        font-size: 1.4rem;
+    }
+}
