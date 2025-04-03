@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         // Move the uploaded file
         if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
-            die("<script>alert('Error uploading photo.'); window.location.href='index.php?page=add_property';</script>");
+            die("<script>alert('Error uploading photo.'); window.location.href='index.php?page=home';</script>");
         }
     }
 
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("isssdis", $owner_id, $title, $description, $location, $price_per_night, $max_guests, $created_at);
     
     if ($stmt->execute()) {
-        echo "<script>alert('Property added successfully!'); window.location.href='index.php?page=properties';</script>";
+        echo "<script>alert('Property added successfully!'); window.location.href='index.php?page=home';</script>";
     } else {
         echo "<script>alert('Error adding property: " . $conn->error . "');</script>";
     }

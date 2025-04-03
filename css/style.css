@@ -117,6 +117,30 @@ nav ul li:hover .dropdown-menu {
     color: var(--main-color);
 }
 
+.map-section {
+    text-align: center;
+    padding: 1rem; /* Reduced padding to move it up */
+}
+
+.map-section h2 {
+    font-size: 2.5rem; /* Slightly smaller heading */
+    margin-bottom: 1.5rem; /* Reduce space below the heading */
+    color: var(--text-color);
+}
+
+.map-container {
+    width: 100%;
+    max-width: 400px; /* Reduce width */
+    margin: 0 auto;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px; /* Reduce height */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 238, 0.5);
+}
+
 
 /* Style the Logo */
 .logo {
@@ -141,48 +165,41 @@ nav ul li:hover .dropdown-menu {
 
 /* Main Content */
 main { 
-    padding: 20px; 
-    margin-top: 60px; /* Prevent content from overlapping with fixed header */
-}
-
-section{
     min-height: 100vh;
-    padding: 10rem 12% 10rem;
+    padding: 4rem 5%;
 }
 
+/* Home Section */
 .home {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
     width: 100%;
     min-height: 100vh;
-    padding: 20px;
+    padding: 5rem 12%;
+    transform: translateX(30px);
 }
 
-/* Ensure text stays in a column on the left */
+/* Home Text - Left Side */
 .home-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
-    gap: 10px;
-    margin-left: 150px;
+    align-items: flex-start; /* Keep text aligned left */
+    justify-content: center;
+    max-width: 50%;
 }
 
 /* Style h2 */
 .home-text h2 {
     font-size: 4rem;
-    font-weight: bold; /* Make it bold */
+    font-weight: bold;
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
-    position: relative;
-    top: -150px; /* Moves text up */
-    left: -250px; /* Moves text to the left */
+    margin-bottom: 1rem; /* Space between h2 and h3 */
 }
 
-/* Make "My Website" the main color */
+/* Highlight "My Website" */
 .home-text h2 span {
     color: var(--main-color);
 }
@@ -192,31 +209,46 @@ section{
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
-    position: relative;
-    top: -140px; /* Moves text up */
-    left: -250px; /* Moves text to the left */
 }
 
-/* Make "HTML and CSS" the main color */
+/* Highlight part of h3 */
 .home-text h3 span {
     color: var(--main-color);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Home Image - Right Side */
+.home-img {
+    flex-shrink: 0; /* Prevent image from shrinking */
 }
 
 .home-img img {
-    width: 300px; /* Adjust image size as needed */
-    height: 300px;
-    border-radius: 50%; /* Make the image circular */
-    overflow: hidden;
-    position: relative;
-    margin-top: -260px; /* Move image up */
-    margin-left: -200px; /* Move image to the left */
-    box-shadow: 0 0 15px var(--main-color); /* Halo effect */
-    transition: transform 0.3s ease; /* Smooth animation on hover */ 
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--main-color);
+    transition: transform 0.3s ease;
+    transform: translateX(-700px);
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-text {
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .home-img img {
+        width: 25rem;
+        height: 25rem;
+    }
+}
 
 /* Footer Styles */
 footer { 
@@ -252,7 +284,7 @@ main {
     } 
 } */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     nav ul {
         display: block;
         text-align: center;
@@ -264,7 +296,7 @@ main {
 }
 
 /* Tablet Portrait */
-@media (min-width: 600px) and (max-width: 1024px) {
+/* @media (min-width: 600px) and (max-width: 1024px) {
     nav ul {
         display: inline;
         text-align: center;
@@ -273,7 +305,7 @@ main {
         display: inline;
         margin-bottom: 10px;
     }
-}
+}  */
 
 
 /*Login styling*/
@@ -846,3 +878,4 @@ button[type="submit"]:hover:not(:disabled) {
         font-size: 1.4rem;
     }
 }
+

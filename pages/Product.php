@@ -7,7 +7,7 @@
                     <div class="timeline-content">
                         <div class="text-content">
                             <h3>Beach View Mansion</h3>
-                            <p>sjdkjadhjkashdkjasdsj</p>
+                            <p>Beach Mansion</p>
                         </div>
                         <img src="beach-mansion.jpg" alt="Beach View Mansion" class="rental-image">
                     </div>
@@ -19,7 +19,7 @@
                     <div class="timeline-content">
                         <div class="text-content">
                             <h3>Mountain View log cabin</h3>
-                            <p>sjdkjadhjkashdkjasdsj</p>
+                            <p>Mountain cabin</p>
                         </div>
                         <img src="log-cabin.jpg" alt="Log cabin" class="rental-image">
                     </div>
@@ -31,7 +31,7 @@
                     <div class="timeline-content">
                         <div class="text-content">
                             <h3>Farm House</h3>
-                            <p>sjdkjadhjkashdkjasdsj</p>
+                            <p>Farm house</p>
                         </div>
                         <img src="farm-house.jpg" alt="Farm house" class="rental-image">
                     </div>

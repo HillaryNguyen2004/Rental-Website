@@ -43,7 +43,7 @@ $user_name = isset($_SESSION['email']) ? $_SESSION['email'] : null;
                 <!-- Display User Email or Login -->
                 <?php if (!empty($user_name)): ?>
                     <li class="user-info">
-                        <a href="profile.php">👤 <?php echo htmlspecialchars($user_name); ?></a>
+                        <a href="index.php?page=profile">👤 <?php echo htmlspecialchars($user_name); ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Logout</a></li>
                         </ul>
@@ -61,7 +61,7 @@ $user_name = isset($_SESSION['email']) ? $_SESSION['email'] : null;
     $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
     // Allowed pages (Make sure these files exist)
-    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent'];
+    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent','profile'];
 
     // Check if page is allowed and exists in 'pages/' directory
     if ($page === 'Login') {
