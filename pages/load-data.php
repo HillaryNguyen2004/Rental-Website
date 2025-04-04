@@ -36,6 +36,7 @@ if ($result === false) {
         while ($row = $result->fetch_assoc()) {
             $image_filename = 'photo/' . strtolower(str_replace(' ', '_', $row['title'])) . '.jpg';
             
+            
             echo '<div class="property-box">
                     <img src="' . $image_filename . '" alt="' . htmlspecialchars($row['title']) . '" loading="lazy">
                     <h3>' . htmlspecialchars($row['title']) . '</h3>

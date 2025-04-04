@@ -44,7 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Replace spaces with underscores in the title for file name
         $safeTitle = str_replace(" ", "_", strtolower($title));  // Replace spaces with underscores
         $photoExt = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
-        $photoPath = $targetDir . $safeTitle . "." . $photoExt;
+        
+        // Check if the file extension is .jpg
+        if (strtolower($photoExt) !== 'jpg') {
+            die("<script>alert('Only .jpg photos are allowed.'); window.location.href='index.php?page=Contact';</script>");
+        }
+        
+        $photoPath = $targetDir . $safeTitle . ".jpg";  // Save as .jpg
         
         // Move the uploaded file
         if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
@@ -91,7 +97,7 @@ $conn->close();
         <input type="number" name="max_guests" required><br>
         
         <label>Upload Photo:</label>
-        <input type="file" name="photo" accept="image/*" required><br>
+        <input type="file" name="photo" accept="image/jpeg" required><br>
         
         <button type="submit">Add Property</button>
     </form>

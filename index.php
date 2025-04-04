@@ -61,7 +61,7 @@ $user_name = isset($_SESSION['email']) ? $_SESSION['email'] : null;
     $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
     // Allowed pages (Make sure these files exist)
-    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent','profile'];
+    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent','profile','edit'];
 
     // Check if page is allowed and exists in 'pages/' directory
     if ($page === 'Login') {
