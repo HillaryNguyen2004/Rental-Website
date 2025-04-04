@@ -61,7 +61,7 @@ $user_name = isset($_SESSION['email']) ? $_SESSION['email'] : null;
     $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
     // Allowed pages (Make sure these files exist)
-    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent','profile','edit'];
+    $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact','rentProp','process_rent','profile','edit',];
 
     // Check if page is allowed and exists in 'pages/' directory
     if ($page === 'Login') {
@@ -72,6 +72,9 @@ $user_name = isset($_SESSION['email']) ? $_SESSION['email'] : null;
         }
     } elseif ($page === 'index' || $page === 'home') {
         include "pages/index.php";
+    }
+    elseif ($page === 'admin') {
+        include "pages/admin.php";
     }
     //elseif ($_GET['page'] == 'renting') { include 'pages/$process_rent.php'; }
     elseif (in_array($page, $allowed_pages) && file_exists("pages/$page.php")) {
