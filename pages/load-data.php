@@ -3,28 +3,63 @@ include 'db_connection.php';
 
 $limit = isset($_POST['limit']) ? (int)$_POST['limit'] : 6;
 $offset = isset($_POST['offset']) ? (int)$_POST['offset'] : 0;
-$query = isset($_POST['query']) ? $_POST['query'] : "";
+$query = isset($_POST['query']) ? trim($_POST['query']) : "";
+$sort = isset($_POST['sort']) ? $_POST['sort'] : "";
 
-// Base SQL Query
+// Base SQL and bindings
 $sql = "SELECT 
-    p.*,  -- Select all columns from properties table
-    u.name AS owner_name,
-    u.email AS owner_email,
-    u.phone AS owner_phone
-FROM properties p
-JOIN users u ON p.owner_id = u.user_id";
+            p.*,  
+            u.name AS owner_name,
+            u.email AS owner_email,
+            u.phone AS owner_phone
+        FROM properties p
+        JOIN users u ON p.owner_id = u.user_id";
+$where = [];
+$params = [];
+$types = "";
 
+// Add WHERE clause if search query exists
 if (!empty($query)) {
-    $sql .= " WHERE p.title LIKE ? OR p.description LIKE ?";
-    $stmt = $conn->prepare($sql);
+    $where[] = "(p.title LIKE ? OR p.description LIKE ?)";
     $searchQuery = "%$query%";
-    $stmt->bind_param("ss", $searchQuery, $searchQuery);
-} else {
-    $sql .= " LIMIT ? OFFSET ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $limit, $offset);
+    $params[] = $searchQuery;
+    $params[] = $searchQuery;
+    $types .= "ss";
 }
 
+// Combine WHERE clauses
+if (!empty($where)) {
+    $sql .= " WHERE " . implode(" AND ", $where);
+}
+
+// Add ORDER BY clause
+switch ($sort) {
+    case 'title_asc':
+        $sql .= " ORDER BY p.title ASC";
+        break;
+    case 'title_desc':
+        $sql .= " ORDER BY p.title DESC";
+        break;
+    default:
+        $sql .= " ORDER BY p.property_id DESC"; // fallback sort
+        break;
+}
+
+// Add LIMIT and OFFSET
+$sql .= " LIMIT ? OFFSET ?";
+$params[] = $limit;
+$params[] = $offset;
+$types .= "ii";
+
+// Prepare and execute
+$stmt = $conn->prepare($sql);
+
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error);
+}
+
+// Bind all parameters dynamically
+$stmt->bind_param($types, ...$params);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -35,7 +70,6 @@ if ($result === false) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $image_filename = 'photo/' . strtolower(str_replace(' ', '_', $row['title'])) . '.jpg';
-            
             
             echo '<div class="property-box">
                     <img src="' . $image_filename . '" alt="' . htmlspecialchars($row['title']) . '" loading="lazy">
