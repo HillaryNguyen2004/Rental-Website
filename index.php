@@ -70,7 +70,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
         $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
         // Allowed pages (Make sure these files exist)
-        $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact', 'rentProp', 'process_rent', 'profile', 'edit'];
+        $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact', 'rentProp', 'process_rent', 'profile', 'edit','register'];
         $allowed_admin_pages = ['admin'];
 
         // Role-based access control
@@ -89,9 +89,19 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
             } else {
                 echo "<h2>Login page not found</h2>";
             }
+        
         } elseif ($page === 'index' || $page === 'home') {
             include "pages/index.php";
-        } elseif ($page === 'admin') {
+        }
+        if ($page === 'register') {
+            if (file_exists("register.php")) {
+                include "register.php"; // Directly include from the main folder
+            } else {
+                echo "<h2>Register page not found</h2>";
+            }
+        }
+        
+        elseif ($page === 'admin') {
             include "pages/admin.php";
         } elseif (in_array($page, $allowed_pages) && file_exists("pages/$page.php")) {
             include "pages/$page.php";

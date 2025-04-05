@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         goto display;
     }
 
-    $insertQuery = "INSERT INTO bookings (user_id, property_id, check_in, check_out, total_price, status, created_at) VALUES ('$user_id', '$property_id', '$checkin', '$checkout', '$total_price', 'pending', NOW())";
+    $insertQuery = "INSERT INTO bookings (user_id, property_id, check_in, check_out, total_price, status, created_at) VALUES ('$user_id', '$property_id', '$checkin', '$checkout', '$total_price', 'confirmed', NOW())";
     if ($conn->query($insertQuery)) {
         // $bookingDetails = "Booking successful!";
         echo "<script>alert('Booking successful!');</script>";

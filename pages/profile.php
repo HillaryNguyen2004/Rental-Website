@@ -30,6 +30,18 @@ $propertyQuery = $conn->prepare("SELECT property_id, title, description, locatio
 $propertyQuery->bind_param("i", $user_id);
 $propertyQuery->execute();
 $propertyResult = $propertyQuery->get_result();
+
+// Fetch bookings for user's properties
+$bookingQuery = $conn->prepare("
+    SELECT b.booking_id, b.property_id, b.check_in, b.check_out, b.total_price, b.status, b.created_at, p.title
+    FROM bookings b
+    JOIN properties p ON b.property_id = p.property_id
+    WHERE b.user_id = ?
+    ORDER BY b.created_at DESC
+");
+$bookingQuery->bind_param("i", $user_id);
+$bookingQuery->execute();
+$bookingResult = $bookingQuery->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -96,8 +108,38 @@ $propertyResult = $propertyQuery->get_result();
             </div>
         <?php } else { ?>
             <p>No properties owned.</p>
-        <?php } 
+        <?php } ?>
+
+        <h2>Your Current Bookings</h2>
+        <?php if ($bookingResult->num_rows > 0) { ?>
+            <div class="booking-table">
+                <div class="table-header">
+                    <!-- <span>Booking ID</span> -->
+                    <span>Property</span>
+                    <span>Check-in</span>
+                    <span>Check-out</span>
+                    <span>Total Price</span>
+                    <span>Status</span>
+                    <span>Created</span>
+                </div>
+                <?php while ($booking = $bookingResult->fetch_assoc()) { ?>
+                    <div class="table-row">
+                        <span><?php echo htmlspecialchars($booking['title']); ?></span>
+                        <span><?php echo htmlspecialchars($booking['check_in']); ?></span>
+                        <span><?php echo htmlspecialchars($booking['check_out']); ?></span>
+                        <span>$<?php echo htmlspecialchars($booking['total_price']); ?></span>
+                        <span><?php echo htmlspecialchars($booking['status']); ?></span>
+                        <span><?php echo htmlspecialchars($booking['created_at']); ?></span>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } else { ?>
+            <p>No bookings found for your properties.</p>
+        <?php } ?>
+
+        <?php
         $propertyQuery->close();
+        $bookingQuery->close();
         $conn->close();
         ?>
     </div>

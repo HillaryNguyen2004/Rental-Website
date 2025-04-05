@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
         $stmt = $conn->prepare("INSERT INTO users (email, name, phone, password_hash, role) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $email, $name, $phone, $password, $role);
         if ($stmt->execute()) {
-            header("Location: login.php?success=registered");
+            header("Location: index.php?page=Login");
             exit();
         } else {
             $error = "Error: " . $stmt->error;
@@ -51,7 +51,7 @@ $conn->close();
                 <input type="tel" name="phone" placeholder="Phone number" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="signup">Register</button>
-                <a href="login.php">Back to Login</a>
+                <a href="index.php?page=Login">Back to Login</a>
             </form>
         </div>
     </div>

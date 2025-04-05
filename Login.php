@@ -106,7 +106,7 @@ $conn->close();
             </a> -->
             
             <!-- Register Link -->
-            <a href="register.php" class="register-link">Don't have an account? Register here</a>
+            <a href="index.php?page=register" class="register-link">Don't have an account? Register here</a>
         </div>
     </div>
 </body>
