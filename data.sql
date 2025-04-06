@@ -52,7 +52,7 @@ CREATE TABLE Payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     booking_id INT,
     amount DECIMAL(10,2) NOT NULL,
-    payment_status ENUM('pending', 'completed', 'failed') DEFAULT 'pending',
+    payment_status ENUM('pending', 'confirmed', 'failed') DEFAULT 'confirmed',
     transaction_id VARCHAR(100) UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id) ON DELETE CASCADE
