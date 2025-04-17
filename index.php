@@ -39,14 +39,14 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
                     <li class="dropdown">
                         <a href="index.php?page=Catagories">Categories ▾</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Beach House/Villa</a></li>
-                            <li><a href="#">Mountain Cabin</a></li>
-                            <li><a href="#">City Apartment</a></li>
-                            <li><a href="#">Tropical Bungalow</a></li>
-                            <li><a href="#">Countryside Cottage</a></li>
+                            <li><a href="index.php?page=searchForBeachHouse">Beach House/Villa</a></li>
+                            <li><a href="index.php?page=searchForMountanCabin">Mountain Cabin</a></li>
+                            <li><a href="index.php?page=searchForCityApartment">City Apartment</a></li>
+                            <li><a href="index.php?page=searchForTropicalBungalow">Tropical Bungalow</a></li>
+                            <li><a href="index.php?page=searchForCountrysideCottage">Countryside Cottage</a></li>
                         </ul>
                     </li>
-                    <li><a href="index.php?page=Contact">Contact</a></li>
+                    <li><a href="index.php?page=Contact">Listing</a></li>
 
                     <!-- Display User Email or Login -->
                     <?php if (!empty($user_name)): ?>
@@ -70,7 +70,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
         $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
         // Allowed pages
-        $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact', 'rentProp', 'process_rent', 'profile', 'edit', 'register'];
+        $allowed_pages = ['index', 'Login', 'Product', 'Catagories', 'Contact', 'rentProp', 'process_rent', 'profile', 'edit', 'register','searchForBeachHouse','searchForMountanCabin','searchForCityApartment','searchForTropicalBungalow','searchForCountrysideCottage'];
         $allowed_admin_pages = ['admin'];
 
         if ($user_role === 'admin') {
