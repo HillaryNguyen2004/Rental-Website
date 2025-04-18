@@ -86,11 +86,25 @@ $conn->close();
             text-align: center;
             margin-top: 15px;
         }
+        .login-container p {
+            font-size: 12px;
+            color: #555;
+            margin-top: 0px;
+            /* background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+        }
+
     </style>
 </head>
 <body>
     <div class="login-page">
         <div class="login-container">
+            <p>Log in for admin: admin1@example.com/admin2@example.com, Password: 123</p>
+            <!-- <p></p> -->
             <h2>Login</h2>
             <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <form method="POST">
@@ -107,6 +121,7 @@ $conn->close();
             
             <!-- Register Link -->
             <a href="index.php?page=register" class="register-link">Don't have an account? Register here</a>
+            
         </div>
     </div>
 </body>
