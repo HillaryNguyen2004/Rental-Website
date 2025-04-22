@@ -98,6 +98,15 @@ $conn->close();
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
         }
+        .login-container label {
+
+            margin: 0; /* Remove all margins */
+            padding: 0; /* Remove padding */
+            line-height: 1; /* Minimize vertical space */
+            font-size: 16px; /* Larger font size for labels */
+            color: #ccc; /* Light gray color for labels */
+            text-align: left;
+        }
 
     </style>
 </head>
@@ -108,7 +117,9 @@ $conn->close();
             <h2>Login</h2>
             <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <form method="POST">
+                <label>Email</label>
                 <input type="email" name="email" placeholder="Email" required>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="login" value="1">Login</button>
             </form>

@@ -123,7 +123,9 @@ $conn->close();
             <div class="login-container">
                 <h2>Login</h2>
                 <form>
-                    <input type="text" placeholder="Username" required>
+                    <p>Email</p>
+                    <input type="text" placeholder="Email" required>
+                    <p>Password</p>
                     <input type="password" placeholder="Password" required>
                     <button type="submit">Login</button>
                     <!-- <button type="button" onclick="window.location.href='index.html';">Login</button> -->
