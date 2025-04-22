@@ -60,7 +60,7 @@ CREATE TABLE Payments (
 );
 
 
-INSERT INTO User (name, email, password, phone, created_at, role)
+INSERT INTO users (name, email, password_hash, phone, created_at, role)
 VALUES (
   'Alice Johnson',
   'admin1@example.com',

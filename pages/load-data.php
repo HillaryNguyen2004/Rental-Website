@@ -19,12 +19,19 @@ $params = [];
 $types = "";
 
 // Add WHERE clause if search query exists
+// if (!empty($query)) {
+//     $where[] = "(p.title LIKE ? OR p.description LIKE ?)";
+//     $searchQuery = "$query%";
+//     $params[] = $searchQuery;
+//     // $params[] = $searchQuery;
+//     $types .= "ss";
+// }
+
 if (!empty($query)) {
-    $where[] = "(p.title LIKE ? OR p.description LIKE ?)";
-    $searchQuery = "%$query%";
-    $params[] = $searchQuery;
-    $params[] = $searchQuery;
-    $types .= "ss";
+    $where[] = "p.title LIKE ?"; // Only search for the title
+    $searchQuery = "$query%"; // Match titles that start with the search term
+    $params[] = $searchQuery; // Bind the search query to the parameter
+    $types .= "s"; // Only one string parameter
 }
 
 // Combine WHERE clauses

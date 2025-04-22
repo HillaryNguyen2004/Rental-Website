@@ -42,11 +42,11 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
                             <li><a href="index.php?page=searchForBeachHouse">Beach House/Villa</a></li>
                             <li><a href="index.php?page=searchForMountanCabin">Mountain Cabin</a></li>
                             <li><a href="index.php?page=searchForCityApartment">City Apartment</a></li>
-                            <li><a href="index.php?page=searchForTropicalBungalow">Tropical Bungalow</a></li>
+                            <!-- <li><a href="index.php?page=searchForTropicalBungalow">Tropical Bungalow</a></li> -->
                             <li><a href="index.php?page=searchForCountrysideCottage">Countryside Cottage</a></li>
                         </ul>
                     </li>
-                    <li><a href="index.php?page=Contact">Listing</a></li>
+                    <li><a href="index.php?page=Contact">Add Property</a></li>
 
                     <!-- Display User Email or Login -->
                     <?php if (!empty($user_name)): ?>

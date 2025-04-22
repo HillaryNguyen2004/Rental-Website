@@ -85,6 +85,7 @@ $conn->close();
             display: block;
             text-align: center;
             margin-top: 15px;
+            font-size: 16px;
         }
         .login-container p {
             font-size: 12px;
@@ -103,8 +104,7 @@ $conn->close();
 <body>
     <div class="login-page">
         <div class="login-container">
-            <p>Log in for admin: admin1@example.com/admin2@example.com, Password: 123</p>
-            <!-- <p></p> -->
+            <!-- <p>Log in for admin: admin1@example.com/admin2@example.com, Password: 123</p> -->
             <h2>Login</h2>
             <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <form method="POST">
